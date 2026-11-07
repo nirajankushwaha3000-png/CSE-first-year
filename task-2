@@ -1,0 +1,25 @@
+print("***Tip Calculator***")
+items = []
+
+for i in range(int(input("Enter the number of items: "))):
+    name = input(f"Enter the name of item {i+1}: ")
+    price = float(input(f"Enter the price of {name} (in Rs.): "))
+    qty = int(input(f"Enter the quantity of {name}: "))
+    items.append((name, qty, price, price * qty))
+
+subtotal = sum(item[3] for item in items)
+tip = float(input("\nEnter the tip amount (in Rs.): "))
+
+print("\n" + "=" * 40)
+print("Detailed Bill".center(40))
+print("=" * 40)
+print(f"{'Item':<15}{'Qty':>5}{'Price':>10}{'Total':>10}")
+print("-" * 40)
+for name, qty, price, total in items:
+    print(f"{name:<15}{qty:>5}{price:>10.2f}{total:>10.2f}")
+print("-" * 40)
+print(f"{'Subtotal':<30}Rs {subtotal:.2f}")
+print(f"{'Tip Amount':<30}Rs {tip:.2f}")
+print("-" * 40)
+print(f"{'Total':<30}Rs {subtotal + tip:.2f}")
+print("Thank you for visiting!")
